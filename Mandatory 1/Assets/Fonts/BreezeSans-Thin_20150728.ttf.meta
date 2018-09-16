@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 88bfb7c03d9071744830cf4a1038e1ca
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: BreezeSans
+  fontNames:
+  - BreezeSans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2571aa2210a30554ebbba8282c78ec37, type: 3}
+  - {fileID: 12800000, guid: 7c315c72b3e2fd049852c0e392cfc9b7, type: 3}
+  - {fileID: 12800000, guid: 84e60a15353496e4cb3fbc2bbe8820d8, type: 3}
+  - {fileID: 12800000, guid: 3612f55ac193cef408879729c46c13ea, type: 3}
+  - {fileID: 12800000, guid: 24c5f48c318e0b3458332b31caa5ce3d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
