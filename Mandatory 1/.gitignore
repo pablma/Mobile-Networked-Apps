@@ -6,7 +6,6 @@
 [Bb]uild
 /[Bb]uilds/
 /[Ll]ibrary/
-/[Pp]ackages/
 sysinfo.txt
 *.stackdump
 /Assets/AssetStoreTools*

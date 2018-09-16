@@ -292,9 +292,9 @@ public class GameController : MonoBehaviour {
         if (GameManager.instance.player1VictoryState || GameManager.instance.player2VictoryState)
         {
             if (GameManager.instance.pid == GameManager.instance.player1id && GameManager.instance.player1VictoryState)
-                titleText.text = "YOU WON!";
+                titleText.text = "YOU WIN!";
             else if (GameManager.instance.pid == GameManager.instance.player2id && GameManager.instance.player2VictoryState)
-                titleText.text = "YOU WON";
+                titleText.text = "YOU WIN";
             else titleText.text = "YOU LOSE!";
 
             saveBoardButton.gameObject.SetActive(false);
