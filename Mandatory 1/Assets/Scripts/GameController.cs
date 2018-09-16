@@ -239,26 +239,27 @@ public class GameController : MonoBehaviour {
                 board[i] = spaces[i].GetComponent<SpaceController>().spaceId;
             }
 
-            if (checkVictory())
-            {
-                if (GameManager.instance.pid == GameManager.instance.player1id)
-                    GameManager.instance.player1VictoryState = true;
-                else if(GameManager.instance.pid == GameManager.instance.player2id)
-                    GameManager.instance.player2VictoryState = true;
-                winstate();
-                // Update shared data object on server:
-                StartCoroutine(GameSetDataServer());
-            }
-            else
-            {
-                // Update all elements:
+            //if (checkVictory())
+            //{
+            //    if (GameManager.instance.pid == GameManager.instance.player1id)
+            //        GameManager.instance.player1VictoryState = true;
+            //    else if(GameManager.instance.pid == GameManager.instance.player2id)
+            //        GameManager.instance.player2VictoryState = true;
                 UpdateScene();
+                //winstate();
                 // Update shared data object on server:
                 StartCoroutine(GameSetDataServer());
-            }
+            //}
+            //else
+            //{
+            //    // Update all elements:
+            //    UpdateScene();
+            //    // Update shared data object on server:
+            //    StartCoroutine(GameSetDataServer());
+            //}
         }
         else
-        debugText.text = "NO SPACE SELECTED";
+            debugText.text = "NO SPACE SELECTED";
     }
 
 	public void EndGameButtonHandler() {
@@ -278,14 +279,37 @@ public class GameController : MonoBehaviour {
 		// Set title (Player1 vs. player2):
 		titleText.text = GameManager.instance.player1name + " vs. " + GameManager.instance.player2name;
 
-		// Set all sprites on board:
-		for (int i=0; i<board.Length; i++) {
+
+        // Set all sprites on board:
+        for (int i=0; i<board.Length; i++) {
 			spaces[i].GetComponent<SpaceController>().SetSpace(board[i]);
 		}
 
-		// Update Save Board Button:
-		if (GameManager.instance.yourTurn) saveBoardButton.gameObject.SetActive(true);
-		else saveBoardButton.gameObject.SetActive(false);
+        if (checkVictory())
+        {
+            if (GameManager.instance.pid == GameManager.instance.player1id)
+                GameManager.instance.player1VictoryState = true;
+            else if (GameManager.instance.pid == GameManager.instance.player2id)
+                GameManager.instance.player2VictoryState = true;
+        }
+
+        // Update Save Board Button:
+        if (GameManager.instance.player1VictoryState || GameManager.instance.player2VictoryState)
+        {
+            if (GameManager.instance.pid == GameManager.instance.player1id && GameManager.instance.player1VictoryState)
+                titleText.text = "GANASTE";
+            else if (GameManager.instance.pid == GameManager.instance.player2id && GameManager.instance.player2VictoryState)
+                titleText.text = "GANASTE";
+            else titleText.text = "PERDISTE";
+
+            saveBoardButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            if (GameManager.instance.yourTurn) saveBoardButton.gameObject.SetActive(true);
+            else saveBoardButton.gameObject.SetActive(false);
+        }
+		
 	}
 
     
