@@ -81,6 +81,8 @@ public class GameController : MonoBehaviour {
 				GameManager.instance.player2id = dataObj.player2id;
 				GameManager.instance.player1name = dataObj.player1name;
 				GameManager.instance.player2name = dataObj.player2name;
+                GameManager.instance.player1VictoryState = dataObj.player1VictoryState;
+                GameManager.instance.player2VictoryState = dataObj.player2VictoryState;
 				
 				// Update turn:
 				GameManager.instance.yourTurn = false;
@@ -111,6 +113,8 @@ public class GameController : MonoBehaviour {
 				GameManager.instance.player1name = "";
 				GameManager.instance.player2name = "";
 				GameManager.instance.gid = -1;
+                GameManager.instance.player1VictoryState = false;
+                GameManager.instance.player2VictoryState = false;
 
 				// Back to lobby:
 				SceneManager.LoadScene("Lobby");
@@ -148,6 +152,8 @@ public class GameController : MonoBehaviour {
 		dataObj.player2id = GameManager.instance.player2id;
 		dataObj.player1name = GameManager.instance.player1name;
 		dataObj.player2name = GameManager.instance.player2name;
+        dataObj.player1VictoryState = GameManager.instance.player1VictoryState;
+        dataObj.player2VictoryState = GameManager.instance.player2VictoryState;
 		// Set opponent as turn (0 or 1):
 		dataObj.playerturn = 0;
 		if (GameManager.instance.player1id == GameManager.instance.pid) dataObj.playerturn = 1;
@@ -213,6 +219,8 @@ public class GameController : MonoBehaviour {
 				GameManager.instance.player1name = "";
 				GameManager.instance.player2name = "";
 				GameManager.instance.gid = -1;
+                GameManager.instance.player1VictoryState = false;
+                GameManager.instance.player2VictoryState = false;
 				
 				// Back to lobby:
 				SceneManager.LoadScene("Lobby");
@@ -239,24 +247,19 @@ public class GameController : MonoBehaviour {
                 board[i] = spaces[i].GetComponent<SpaceController>().spaceId;
             }
 
-            //if (checkVictory())
-            //{
-            //    if (GameManager.instance.pid == GameManager.instance.player1id)
-            //        GameManager.instance.player1VictoryState = true;
-            //    else if(GameManager.instance.pid == GameManager.instance.player2id)
-            //        GameManager.instance.player2VictoryState = true;
-                UpdateScene();
-                //winstate();
-                // Update shared data object on server:
-                StartCoroutine(GameSetDataServer());
-            //}
-            //else
-            //{
-            //    // Update all elements:
-            //    UpdateScene();
-            //    // Update shared data object on server:
-            //    StartCoroutine(GameSetDataServer());
-            //}
+            if (checkVictory())
+            {
+                if (GameManager.instance.pid == GameManager.instance.player1id)
+                    GameManager.instance.player1VictoryState = true;
+                else if (GameManager.instance.pid == GameManager.instance.player2id)
+                    GameManager.instance.player2VictoryState = true;
+                
+            }
+
+            // Update all elements:
+            UpdateScene();
+            // Update shared data object on server:
+            StartCoroutine(GameSetDataServer());
         }
         else
             debugText.text = "NO SPACE SELECTED";
@@ -285,22 +288,14 @@ public class GameController : MonoBehaviour {
 			spaces[i].GetComponent<SpaceController>().SetSpace(board[i]);
 		}
 
-        if (checkVictory())
-        {
-            if (GameManager.instance.pid == GameManager.instance.player1id)
-                GameManager.instance.player1VictoryState = true;
-            else if (GameManager.instance.pid == GameManager.instance.player2id)
-                GameManager.instance.player2VictoryState = true;
-        }
 
-        // Update Save Board Button:
         if (GameManager.instance.player1VictoryState || GameManager.instance.player2VictoryState)
         {
             if (GameManager.instance.pid == GameManager.instance.player1id && GameManager.instance.player1VictoryState)
-                titleText.text = "GANASTE";
+                titleText.text = "YOU WON!";
             else if (GameManager.instance.pid == GameManager.instance.player2id && GameManager.instance.player2VictoryState)
-                titleText.text = "GANASTE";
-            else titleText.text = "PERDISTE";
+                titleText.text = "YOU WON";
+            else titleText.text = "YOU LOSE!";
 
             saveBoardButton.gameObject.SetActive(false);
         }
@@ -308,8 +303,7 @@ public class GameController : MonoBehaviour {
         {
             if (GameManager.instance.yourTurn) saveBoardButton.gameObject.SetActive(true);
             else saveBoardButton.gameObject.SetActive(false);
-        }
-		
+        }	
 	}
 
     
@@ -348,25 +342,5 @@ public class GameController : MonoBehaviour {
             victory = true;
 
         return victory;
-    }
-
-    void winstate()
-    {
-        // Set title (Player1 vs. player2):
-        if (GameManager.instance.pid == GameManager.instance.player1id && GameManager.instance.player1VictoryState)
-            titleText.text = "GANASTE";
-        else if (GameManager.instance.pid == GameManager.instance.player2id && GameManager.instance.player2VictoryState)
-            titleText.text = "GANASTE";
-        else titleText.text = "PERDISTE";
-        //titleText.text = GameManager.instance.player1name + " vs. " + GameManager.instance.player2name;
-
-        // Set all sprites on board:
-        for (int i = 0; i < board.Length; i++)
-        {
-            spaces[i].GetComponent<SpaceController>().SetSpace(board[i]);
-        }
-
-        // Update Save Board Button:
-        saveBoardButton.gameObject.SetActive(false);
     }
 }

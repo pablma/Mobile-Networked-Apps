@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour {
 	public float pullIntervalLobby = 5f; // seconds
 	public float pullIntervalGame = 5f; // seconds
     public bool markedSpace = false;
-
     public bool player1VictoryState = false;
     public bool player2VictoryState = false;
 

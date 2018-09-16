@@ -18,7 +18,9 @@ public class SpaceController : MonoBehaviour {
 
 	void OnMouseDown() {
 		Debug.Log("ON MOUSE DOWN");
-		if (GameManager.instance.yourTurn && !GameManager.instance.markedSpace && spaceId == 0) {
+		if (GameManager.instance.yourTurn && !GameManager.instance.markedSpace && spaceId == 0 
+            && !GameManager.instance.player1VictoryState && !GameManager.instance.player2VictoryState)
+        {
             //here we must check the id of the player who have the turn
             if (GameManager.instance.pid == GameManager.instance.player1id)
             {
