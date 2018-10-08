@@ -10,6 +10,7 @@ public class SpaceController : MonoBehaviour {
     public int spacePosition = -1; 
 
 	public void SetSpace(int newSpaceId) {
+	//Changes to test github
         //if (newSpaceId < 0) spaceId = spaceSprites.Length - 1; // Last sprite
         //else if (newSpaceId >= spaceSprites.Length) spaceId = 0; // First sprite
        /* else*/ spaceId = newSpaceId;
