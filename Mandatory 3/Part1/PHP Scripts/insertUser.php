@@ -16,8 +16,8 @@
 		die("Connection failed." . mysqli_connect_error());
 	}
 	
-	echo "Everything is ok";
-	/	
+	//echo "Everything is ok";
+		
 	$sql = "INSERT INTO users (Username, Password)
 			VALUES ('" . $username . "', '" . $password . "')";
 	

@@ -4,6 +4,7 @@ Pablo Martín García
 
 Guide:
 We have made the Part 1 using the localhost server in WAMP.
+First of all, you must initialize wamp server.
 To run the program correctly you need to have the .php files in the www folder of wamp.
 Then, you have to create a new database called mandatory3_database in your localhost server
 and add 1 table.
