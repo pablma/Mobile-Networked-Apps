@@ -1,0 +1,63 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
+
+public class FingerGun : NetworkBehaviour
+{
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
+
+    private Camera camera;
+
+    void Start()
+    {
+        if ((GameObject.Find("Main Camera") != null) && (GameObject.Find("Main Camera").GetComponent<Camera>() != null))
+        {
+            camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        }
+    }
+    // Update is called once per frame
+    void Update () {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    CmdFire();
+        //}
+    }
+
+
+    public void dispara()
+    {
+        Debug.Log("Hola");
+        if (isLocalPlayer)
+        {
+            CmdFire();
+        }
+    }
+
+    [Command]
+    public void CmdFire(/*Vector3 mousePosition*/)
+    {
+        
+        // Create the Bullet from the Bullet Prefab
+        var bullet = (GameObject)Instantiate(
+            bulletPrefab,
+            bulletSpawn.position, bulletSpawn.rotation);
+
+        // Add velocity to the bullet
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+        //Allows to instantiate game objects on server in order to be instatiate in all the clients of the server
+        NetworkServer.Spawn(bullet);
+
+        // Destroy the bullet after 2 seconds
+        Destroy(bullet, 20.0f);
+    }
+
+
+}
