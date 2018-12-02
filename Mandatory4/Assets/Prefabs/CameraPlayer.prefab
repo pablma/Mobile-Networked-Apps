@@ -175,7 +175,7 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1522117249423510}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -368,7 +368,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1222540833270198, guid: 57b7ce855dced2d49a3c83418da2631d,
     type: 2}
   bulletSpawn: {fileID: 4770572561064668}
-  panel: {fileID: 0}
+  cameras: []
 --- !u!114 &114381840077716898
 MonoBehaviour:
   m_ObjectHideFlags: 1

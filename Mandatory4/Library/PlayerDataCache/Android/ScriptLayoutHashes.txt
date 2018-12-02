@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/rebo/Desktop/NordUniversity/MobileApps/MandatoryRepo/Mobile-Networked-Apps/Mandatory4/Mandatory4.apk
+C:/Users/rebo/Desktop/NordUniversity/MobileApps/MandatoryRepo/Mobile-Networked-Apps/Mandatory4/Mandatory4.0.apk
 SceneListBegin?
 Assets/Scenes/Menu.unity
 Assets/Scenes/ShooterGame.unity

@@ -18,8 +18,7 @@ public class FingerGun : NetworkBehaviour
         if ((GameObject.Find("Main Camera") != null) && (GameObject.Find("Main Camera").GetComponent<Camera>() != null))
         {
             camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        } 
-        
+        }
     }
     // Update is called once per frame
     void Update () {
@@ -43,9 +42,27 @@ public class FingerGun : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {        
         base.OnStartLocalPlayer();
-        { }
+        {
+        }
         //changes the color for the local player
         GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
+
+        GetComponentInChildren<Camera>().enabled = true;
+    }
+
+    public override void OnStartClient()
+    {
+        //base.OnStartClient();
+
+        //for (int i = 0; i < cameras.Length; i++)
+        //{
+        //    if(isLocalPlayer)
+        //    cameras[i].enabled = true;
+        //    else cameras[i].enabled = false;
+
+        //}
+
+        //Debug.Log(cameras.Length);
     }
 
 
