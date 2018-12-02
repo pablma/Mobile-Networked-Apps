@@ -23,19 +23,14 @@ public class ButtonHealth : NetworkBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
+            //Restart the life level.
             currentHealth = maxHealth;
-            //RpcRespawn();
         }
-        //else if (currentHealth > maxHealth)
-        //{
-        //    currentHealth = maxHealth;
-        //}
-
-        //healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
     }
 
     void OnChangeHealth(int currentHealth)
     {
+        //update life indicator
         healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
     }
 }

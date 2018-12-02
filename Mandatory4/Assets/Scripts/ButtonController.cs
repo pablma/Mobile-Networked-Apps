@@ -26,35 +26,8 @@ public class ButtonController : NetworkBehaviour
 
     void OnMouseDown()
     {
-
-
         if(isLocalPlayer)
             CmdFire();
-
-        ////////if (!isServer)
-        ////////{
-        ////////    if (!isLocalPlayer)
-        ////////    {
-        ////////        //AttackOtherUnit(gameObject);
-        ////////    }
-        ////////    else CmdFire();
-        ////////}
-        ////////else CmdFire();
-        //////////////////////if (isServer)
-        //////////////////////    RpcFire();
-        //////////////////////else CmdFire();
-
-
-        //if (!isLocalPlayer)
-        //{
-
-        //}
-        //else
-        //{
-        //    var health = gameObject.GetComponent<Health>();
-        //    if (health != null)
-        //        health.TakeDamage(50);
-        //}
     }
 
     public override void OnStartLocalPlayer()
@@ -74,22 +47,7 @@ public class ButtonController : NetworkBehaviour
         if (health != null)
             health.TakeDamage(10);
     }
-    //[Command]
-    //private void CmdFire()
-    //{
-    //    var health = gameObject.GetComponent<Health>();
-    //    if (health != null)
-    //        health.TakeDamage(50);
-    //    RpcFire();
-    //}
-
-    //[ClientRpc]
-    //void RpcFire()
-    //{
-    //    var health = gameObject.GetComponent<Health>();
-    //    if (health != null)
-    //        health.TakeDamage(50);
-    //}
+   
 
     private void Fire()
     {
@@ -97,22 +55,4 @@ public class ButtonController : NetworkBehaviour
         if (health != null)
             health.TakeDamage(10);
     }
-
-    //[Client]
-    //public void AttackOtherUnit(GameObject o)
-    //{
-    //    // have us attack the other unit on the server!
-    //    NetworkIdentity ident = o.GetComponent<NetworkIdentity>();
-    //    CmdAttackUnit(ident);
-    //}
-
-    //[Command]
-    //public void CmdAttackUnit(NetworkIdentity otherUnit)
-    //{
-    //    // this method is called on the server, so long as we call the method from the proper client
-    //    // if called by a client without authority, it will simply return immediately and do nothing!
-    //    Health comp = otherUnit.GetComponent<Health>();
-    //    otherUnit.GetComponent<SpriteRenderer>().color = Color.green;
-    //    comp.TakeDamage(50);
-    //}
 }

@@ -33,12 +33,18 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("TapV2");
     }
 
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    //allow us to call the shoot function from the the canvas
     public void shoot()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
         for (int i = 0; i < players.Length; i++)
         {
-            players[i].GetComponent<FingerGun>().dispara();
+            players[i].GetComponent<FingerGun>().Shoot();
         }
     }
 }

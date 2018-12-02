@@ -575,6 +575,9 @@ MonoBehaviour:
   rotateSpeed: 100
   invertPitch: 1
   player: {fileID: 534669905}
+  pitch: 0
+  yaw: 0
+  oRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &773190229
 GameObject:
   m_ObjectHideFlags: 0

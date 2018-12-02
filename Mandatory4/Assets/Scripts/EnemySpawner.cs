@@ -9,7 +9,7 @@ public class EnemySpawner : NetworkBehaviour {
     public int numberOfEnemies;
 
     public override void OnStartServer()
-    {
+    {//spawn the enemies on the selected range
         for (int i = 0; i < numberOfEnemies; i++)
         {
             var spawnPosition = new Vector3(

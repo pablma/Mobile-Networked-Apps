@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Billboard : MonoBehaviour {
     private Camera camera;
-
+    //allow us to face the camera
     void Start()
     {
         if ((GameObject.Find("Main Camera") != null) && (GameObject.Find("Main Camera").GetComponent<Camera>() != null))

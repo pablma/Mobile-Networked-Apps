@@ -22,27 +22,32 @@ public class FingerGun : NetworkBehaviour
     void Update () {
         if (!isLocalPlayer)
         {
+            //changes the collor to red for not local player (the other player)
+            GetComponentInChildren< MeshRenderer > ().material.color = Color.red;
             return;
         }
-
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    CmdFire();
-        //}
     }
 
 
-    public void dispara()
+    public void Shoot()
     {
-        Debug.Log("Hola");
         if (isLocalPlayer)
         {
             CmdFire();
         }
     }
 
+    public override void OnStartLocalPlayer()
+    {
+        base.OnStartLocalPlayer();
+        { }
+        //changes the color for the local player
+        GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
+    }
+
+
     [Command]
-    public void CmdFire(/*Vector3 mousePosition*/)
+    public void CmdFire()
     {
         
         // Create the Bullet from the Bullet Prefab

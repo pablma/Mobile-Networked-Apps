@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//allows camera logic for touch input for mobiles
 public class NewCameraLogic : MonoBehaviour {
     Vector3 FirstPoint;
     Vector3 SecondPoint;
