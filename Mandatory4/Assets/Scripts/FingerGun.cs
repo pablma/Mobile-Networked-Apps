@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
+using UnityEngine.UI;
+
 public class FingerGun : NetworkBehaviour
 {
     public GameObject bulletPrefab;
@@ -16,7 +18,8 @@ public class FingerGun : NetworkBehaviour
         if ((GameObject.Find("Main Camera") != null) && (GameObject.Find("Main Camera").GetComponent<Camera>() != null))
         {
             camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        }
+        } 
+        
     }
     // Update is called once per frame
     void Update () {
@@ -38,7 +41,7 @@ public class FingerGun : NetworkBehaviour
     }
 
     public override void OnStartLocalPlayer()
-    {
+    {        
         base.OnStartLocalPlayer();
         { }
         //changes the color for the local player

@@ -368,6 +368,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1222540833270198, guid: 57b7ce855dced2d49a3c83418da2631d,
     type: 2}
   bulletSpawn: {fileID: 4770572561064668}
+  panel: {fileID: 0}
 --- !u!114 &114381840077716898
 MonoBehaviour:
   m_ObjectHideFlags: 1

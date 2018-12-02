@@ -108,8 +108,8 @@ MonoBehaviour:
     y: 30
     width: 1366
     height: 635
-  m_MinSize: {x: 917, y: 442}
-  m_MaxSize: {x: 22012, y: 10021}
+  m_MinSize: {x: 913, y: 442}
+  m_MaxSize: {x: 22008, y: 10021}
   vertical: 0
   controlID: 104
 --- !u!114 &6
@@ -180,8 +180,8 @@ MonoBehaviour:
     y: 285
     width: 647
     height: 350
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -255,8 +255,8 @@ MonoBehaviour:
     y: 0
     width: 278
     height: 635
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -334,7 +334,7 @@ MonoBehaviour:
       width: 1496.5524
       height: 723.9137
     m_MinimalGUI: 1
-  m_defaultScale: 0.40625
+  m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
   m_LastWindowPixelSize: {x: 645, y: 329}
@@ -368,14 +368,14 @@ MonoBehaviour:
     height: 264
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 8711.114444266514
+  lastFramingTime: 2308.1087189998825
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 47.784, y: 278.75134, z: -2.291244}
+    m_Target: {x: 182.81158, y: 126.2256, z: -6.291123}
     speed: 2
-    m_Value: {x: 47.784, y: 278.75134, z: -2.291244}
+    m_Value: {x: 182.81158, y: 126.2256, z: -6.291123}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -407,15 +407,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 576.3594
+    m_Target: 648.0109
     speed: 2
-    m_Value: 576.3594
+    m_Value: 648.0109
   m_Ortho:
     m_Target: 1
     speed: 2
     m_Value: 1
   m_ShowGlobalGrid: 1
-  m_LastSceneViewRotation: {x: -0.014710752, y: 0.9842365, z: -0.09955814, w: -0.14543165}
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -473,9 +473,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs: 042b0000
     m_LastClickedID: 0
-    m_ExpandedIDs: 8ebffbff6cc0fbff42c1fbff92c2fbffa2c2fbffb8c2fbffc4c2fbffc2cbfbff10cefbff1ed0fbfff8d7fbff5edafbff44e3fbfffeeefbff4e12fcffa814fcff9019fcffa01afcff921bfcffb89ffcff80a2fcff8ca2fcff6236fdffde8efdfff88efdfffa8efdff4800feff4a00feffaa69feffc469feff8405ffffba30ffff86b6fffff4c3fffff6c3ffffe6fbffff00000000be32000076380000fa3e0000263f0000f2400000
+    m_ExpandedIDs: 120affff944bffffb4f6ffffe6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -494,7 +494,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 9}
     m_SearchString: 
   m_ExpandedScenes:
-  - Menu
+  - TapV2
   m_CurrenRootInstanceID: 0
   m_LockTracker:
     m_IsLocked: 0
@@ -536,20 +536,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\rebo\Desktop\NordUniversity\MobileApps\MandatoryRepo\Mobile-Networked-Apps\Mandatory4
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: be2a0000
-    m_LastClickedID: 10942
-    m_ExpandedIDs: 00000000fe29000000ca9a3b
+    m_SelectedIDs: a22c0000
+    m_LastClickedID: 11426
+    m_ExpandedIDs: 00000000fa29000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -577,7 +577,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fe290000
+    m_ExpandedIDs: 00000000fa290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
