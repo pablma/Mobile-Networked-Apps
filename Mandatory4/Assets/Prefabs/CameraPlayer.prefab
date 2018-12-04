@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114381840077716898}
   - component: {fileID: 114183343351483770}
   - component: {fileID: 114606311381219568}
+  - component: {fileID: 114803430942296342}
   m_Layer: 0
   m_Name: CameraPlayer
   m_TagString: Player
@@ -368,7 +369,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1222540833270198, guid: 57b7ce855dced2d49a3c83418da2631d,
     type: 2}
   bulletSpawn: {fileID: 4770572561064668}
-  cameras: []
 --- !u!114 &114381840077716898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -433,6 +433,18 @@ MonoBehaviour:
     i15: 142
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114803430942296342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1522117249423510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944e66ec20c1546478bfdc2f7fefaadb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3.5
 --- !u!136 &136273620229039906
 CapsuleCollider:
   m_ObjectHideFlags: 1

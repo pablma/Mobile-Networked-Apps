@@ -10,7 +10,7 @@ public class FingerGun : NetworkBehaviour
 {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
-
+    public int bulletVel = 6;
     private Camera camera;
 
     void Start()
@@ -76,7 +76,7 @@ public class FingerGun : NetworkBehaviour
             bulletSpawn.position, bulletSpawn.rotation);
 
         // Add velocity to the bullet
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletVel;
         //Allows to instantiate game objects on server in order to be instatiate in all the clients of the server
         NetworkServer.Spawn(bullet);
 
