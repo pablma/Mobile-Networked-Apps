@@ -1,24 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.Networking;
 
-public class Bullet : NetworkBehaviour
+public class Bullet : MonoBehaviour
 {
-    [SyncVar]
-    public int bulletId = 9;
-
-
-    private void Update()
-    {
-        if(bulletId == 0)
-        {
-            gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
-        }
-        else
-        {
-            gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
-        }
-    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -29,10 +13,4 @@ public class Bullet : NetworkBehaviour
             health.TakeDamage(10);
         Destroy(gameObject);
     }
-
-    public void GiveName(int ID)
-    {
-        bulletId = ID;
-    }
-
 }
