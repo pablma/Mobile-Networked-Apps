@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 2ea91fd98a60d024dbd090b71fa75c55
+    path: Assets/Scenes/Game/Lobby.unity
+    guid: d359b8bcdb928d34aa5fa3c56ee50c32
   - enabled: 1
-    path: Assets/Scenes/ShooterGame.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/TapGame.unity
-    guid: 0b10e0fcb4080df4cba1d3db540c7a98
-  - enabled: 1
-    path: Assets/Scenes/TapV2.unity
+    path: Assets/Scenes/Game/DuckHunter.unity
     guid: 094eeee03aeb6994c9c73b7161a9e36a
+  - enabled: 1
+    path: Assets/Scenes/Game/Menu.unity
+    guid: 2ea91fd98a60d024dbd090b71fa75c55
   m_configObjects: {}
