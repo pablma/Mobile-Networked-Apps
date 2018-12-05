@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/NewLobby.unity
+    guid: 087a7307d54ce8c4488f8fbb78a12677
+  - enabled: 0
     path: Assets/Scenes/Game/Lobby.unity
     guid: d359b8bcdb928d34aa5fa3c56ee50c32
   - enabled: 1
     path: Assets/Scenes/Game/DuckHunter.unity
     guid: 094eeee03aeb6994c9c73b7161a9e36a
-  - enabled: 1
-    path: Assets/Scenes/Game/Menu.unity
-    guid: 2ea91fd98a60d024dbd090b71fa75c55
   m_configObjects: {}
