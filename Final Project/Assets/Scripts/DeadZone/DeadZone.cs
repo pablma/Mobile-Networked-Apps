@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class DeadZone : MonoBehaviour {
 
+    ObjectPooler objectPooler;
+
 	// Use this for initialization
 	void Start () {
-		
+        objectPooler = ObjectPooler.instance;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // When something collides with the DeadZone
+    private void OnCollisionEnter(Collision collision)
+    {
+        objectPooler.killGameObject(collision.gameObject);
+    }
 }
