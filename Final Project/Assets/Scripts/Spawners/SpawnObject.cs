@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class SpawnObject : MonoBehaviour {
 
-    public GameObject ObjectToSpawn;
+    [Tooltip("Write the same tag the GameObject has in the pooler")]
+    public string tag;
+
     ObjectPooler objectPooler;
     public float TimeToRespawn = 2f;
     private float timer;
+
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +23,7 @@ public class SpawnObject : MonoBehaviour {
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            Instantiate(ObjectToSpawn);
+            objectPooler.spawnFromPool(tag, transform.position, transform.rotation);
             timer = TimeToRespawn;
         }
 	}
