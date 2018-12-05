@@ -152,6 +152,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114417136752999454, guid: 236bc0f251732a24faa8502b5c2c3b6c,
+        type: 2}
+      propertyPath: ObjectToSpawn
+      value: 
+      objectReference: {fileID: 1358293590487840, guid: a04c3627aa9a29b43a919551ef5d72d5,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 236bc0f251732a24faa8502b5c2c3b6c, type: 2}
   m_IsPrefabAsset: 0
@@ -271,6 +277,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114352611116808716, guid: d3560c425016aa3489938bc7a51f9ec9,
+        type: 2}
+      propertyPath: ObjectToSpawn
+      value: 
+      objectReference: {fileID: 1047931155509308, guid: e01031718547ec24ab9aa509af4013d9,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3560c425016aa3489938bc7a51f9ec9, type: 2}
   m_IsPrefabAsset: 0
@@ -378,11 +390,6 @@ Prefab:
     - target: {fileID: 4657624839824936, guid: 832196a3e31fa414bb2790dcb34aeeed, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114745768124089604, guid: 832196a3e31fa414bb2790dcb34aeeed,
-        type: 2}
-      propertyPath: itemsToPool.Array.data[0].amountToPool
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 832196a3e31fa414bb2790dcb34aeeed, type: 2}
