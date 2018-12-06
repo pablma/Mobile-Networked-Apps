@@ -12,6 +12,8 @@ public class GameManager : NetworkBehaviour {
     public Text player1PointsText;
     public Text player2PointsText;
 
+    public Image player1PanelColor;
+    public Image player2PanelColor;
     //[SyncVar(hook = "updateUi1")] 
     [SyncVar]
     public int player1Points = 0;
@@ -54,7 +56,6 @@ public class GameManager : NetworkBehaviour {
         SceneManager.LoadScene("Menu");
     }
 
-
     //allow us to call the shoot function from the the canvas, from the player (FinguerGun) script it will be decided wich one is the local player shooting
     public void shoot()
     {
@@ -80,7 +81,17 @@ public class GameManager : NetworkBehaviour {
         player1PointsText.text = player1Points.ToString();
         player2PointsText.text = player2Points.ToString();
     }
-   
+
+    public void setPlayer1PanelColor(Color c)
+    {
+        player1PanelColor.color = c;
+    }
+
+    public void setPlayer2PanelColor(Color c)
+    {
+        player2PanelColor.color = c;
+    }
+
     //void updateUi1(int player1Points)
     //{
     //    //player1PointsText.text = player1Points.ToString();

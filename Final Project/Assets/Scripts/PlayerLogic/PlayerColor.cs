@@ -7,7 +7,7 @@ public class PlayerColor : NetworkBehaviour {
 
 
     [SyncVar]
-    public Color pColor;
+    public Color pColor; // has the information and allow us to acces to the color of the mesh of all the elements and objets that make the player object
 
     MeshRenderer[] playerMeshRenderers;
 	// Use this for initialization
@@ -17,10 +17,5 @@ public class PlayerColor : NetworkBehaviour {
         {
             playerMeshRenderers[i].material.color = pColor;
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

@@ -32,19 +32,19 @@ public class FingerGun : NetworkBehaviour
     void Start()
     {
 
-        //if (playerId == 0)
-        //{
-        //    //changes the collor to red for the not local player (the other player)
-        //    GetComponentInChildren<MeshRenderer>().material.color = Color.blue; ;
-        //}
-        //else
-        //    GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        if (playerId == 0)
+        {
 
-        //if ((GameObject.Find("Main Camera") != null) && (GameObject.Find("Main Camera").GetComponent<Camera>() != null))
-        //{
-        //    camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        //}
-    }
+            GameManager.instance.setPlayer1PanelColor(GetComponentInChildren<PlayerColor>().pColor);
+        }
+        else
+            GameManager.instance.setPlayer2PanelColor(GetComponentInChildren<PlayerColor>().pColor);
+
+            //if ((GameObject.Find("Main Camera") != null) && (GameObject.Find("Main Camera").GetComponent<Camera>() != null))
+            //{
+            //    camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+            //}
+        }
 
     // Update is called once per frame
     void Update () {
