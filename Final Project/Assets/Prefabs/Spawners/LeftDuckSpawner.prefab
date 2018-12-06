@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4742253382437332}
   - component: {fileID: 114352611116808716}
+  - component: {fileID: 114608635531873232}
   m_Layer: 0
   m_Name: LeftDuckSpawner
   m_TagString: Untagged
@@ -51,5 +52,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7d7c55a6f66c748a7ac8f0e32c2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tag: LeftDuck
+  objectToSpawn: {fileID: 1047931155509308, guid: e01031718547ec24ab9aa509af4013d9,
+    type: 2}
   TimeToRespawn: 2
+--- !u!114 &114608635531873232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1886931953945092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 211
+    i1: 86
+    i2: 12
+    i3: 66
+    i4: 80
+    i5: 22
+    i6: 170
+    i7: 52
+    i8: 137
+    i9: 147
+    i10: 139
+    i11: 199
+    i12: 165
+    i13: 31
+    i14: 158
+    i15: 201
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class ObjectPooler : MonoBehaviour {
+public class ObjectPooler : NetworkBehaviour {
 
     // A class to create pools of different objects
     [System.Serializable]
@@ -24,10 +24,13 @@ public class ObjectPooler : MonoBehaviour {
     // We make the pool a singleton to get access in an easy way
     public static ObjectPooler instance;
 
-    private void Awake()
+    // A boolean to know if the pooler is initialez in the server to be able to instantiate gameObjects
+    bool poolerInitialized = false;
+
+    public override void OnStartServer()
     {
         instance = this;
-
+    
         // We create a new dictionary
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
@@ -48,6 +51,8 @@ public class ObjectPooler : MonoBehaviour {
             // We add the pool to the dictionary
             poolDictionary.Add(item.prefabToPool.name, objectPool);
         }
+
+        poolerInitialized = true;
     }
 
     // Method to get an item from one of the pools
@@ -56,7 +61,7 @@ public class ObjectPooler : MonoBehaviour {
         // To prevent unexpected errors
         if (!poolDictionary.ContainsKey(go.name))
         {
-            Debug.LogWarning("GameObject '" + go.name + "' doesn't exist.");
+            Debug.LogWarning("GameObject '" + go.name + "' doesn't exist in the pooler.");
             return null;
         }
 
@@ -102,5 +107,10 @@ public class ObjectPooler : MonoBehaviour {
             b = false;
 
         return b;
+    }
+
+    public bool isPoolerInitialized()
+    {
+        return poolerInitialized;
     }
 }
