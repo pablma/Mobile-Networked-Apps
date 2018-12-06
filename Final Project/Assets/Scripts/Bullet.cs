@@ -18,6 +18,8 @@ public class Bullet : NetworkBehaviour
         {
             gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
         }
+
+        //Allow us to distinguish the two bullets
     }
 
     void OnCollisionEnter(Collision collision)

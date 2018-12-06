@@ -8,13 +8,15 @@ using UnityEngine.UI;
 
 public class FingerGun : NetworkBehaviour
 {
-    public GameObject bulletPrefab;
-    public Transform bulletSpawn;
-    public int bulletVel = 6;
-    public int bulletID = 0;
+    public GameObject bulletPrefab; //gO that is going to be spawned
 
-    GameObject[] players;
-    private Camera camera;
+    public Transform bulletSpawn; //position from where the bullet is going to be instantiate
+
+    public int bulletVel = 6;//speed of the spawnable bullet
+    public int playerId = 0;
+
+    GameObject[] players;// allow us to find all the player on the scene to identificate each of them
+    //private Camera camera;
 
     private void Awake()
     {
@@ -22,38 +24,30 @@ public class FingerGun : NetworkBehaviour
 
         if (players.Length > 1)
         {
-            bulletID = 1;
+            playerId = 1;
         }
-        else bulletID = 0;
+        else playerId = 0;
+        //a number to identificate the player, the bullet spawned by each one is coing to have the same identificator
     }
     void Start()
     {
-        if ((GameObject.Find("Main Camera") != null) && (GameObject.Find("Main Camera").GetComponent<Camera>() != null))
+
+        if (playerId == 0)
         {
-            camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+            //changes the collor to red for the not local player (the other player)
+            GetComponentInChildren<MeshRenderer>().material.color = Color.blue; ;
         }
+        else
+            GetComponentInChildren<MeshRenderer>().material.color = Color.red;
 
-
-
-        //if (isLocalPlayer)
+        //if ((GameObject.Find("Main Camera") != null) && (GameObject.Find("Main Camera").GetComponent<Camera>() != null))
         //{
-        //    Debug.Log("LocalPlayerPrimero");
+        //    camera = GameObject.Find("Main Camera").GetComponent<Camera>();
         //}
-        //else
-        //    Debug.Log("OtherPlayerSegundo");
-
-
-
     }
+
     // Update is called once per frame
     void Update () {
-        if (!isLocalPlayer)
-        {
-
-            //changes the collor to red for not local player (the other player)
-            GetComponentInChildren< MeshRenderer > ().material.color = Color.red;
-            return;
-        }
     }
 
 
@@ -71,8 +65,7 @@ public class FingerGun : NetworkBehaviour
         {
         }
         //changes the color for the local player
-        GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
-        GetComponentInChildren<Camera>().enabled = true;
+            GetComponentInChildren<Camera>().enabled = true;
     }
 
     [Command]
@@ -85,12 +78,13 @@ public class FingerGun : NetworkBehaviour
 
         // Add velocity to the bullet
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletVel;
-        bullet.GetComponent<Bullet>().GiveName(bulletID);
+        bullet.GetComponent<LobbyBullet>().assingId(playerId);//gives the bullet the same Id than the player that is shooting, to identificate the owner.
+
         //Allows to instantiate game objects on server in order to be instatiate in all the clients of the server
         NetworkServer.Spawn(bullet);
 
 
         // Destroy the bullet after 2 seconds
-        Destroy(bullet, 20.0f);
+        Destroy(bullet, 5.0f);
     }
 }

@@ -3,14 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : NetworkBehaviour {
 
+    public static GameManager instance;
+
+    public Text player1PointsText;
+    public Text player2PointsText;
+
+    [SyncVar]
+    public int player1Points = 0;
+    [SyncVar]
+    public int player2Points = 0;
 
     GameObject[] players;
 	// Use this for initialization
 	void Start () {
-       
+        instance = this;
+
+        player1PointsText.text = player1Points.ToString();
+        player2PointsText.text = player2Points.ToString();
+
 	}
 	
 	// Update is called once per frame
@@ -37,7 +51,8 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("Menu");
     }
 
-    //allow us to call the shoot function from the the canvas
+
+    //allow us to call the shoot function from the the canvas, from the player (FinguerGun) script it will be decided wich one is the local player shooting
     public void shoot()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -45,5 +60,26 @@ public class GameManager : MonoBehaviour {
         {
             players[i].GetComponent<FingerGun>().Shoot();
         }
+    }
+
+    public void givePoints(int duckId, int bulletId)
+    {
+        switch (bulletId)
+        {
+
+            case 0:
+                player1Points += duckId;
+                break;
+            case 1:
+                player2Points += duckId;
+                break;
+        }
+        updateUi();
+    }
+   
+    void updateUi()
+    {
+        player1PointsText.text = player1Points.ToString();
+        player2PointsText.text = player2Points.ToString();
     }
 }

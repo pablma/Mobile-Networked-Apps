@@ -50,7 +50,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1693445876230452
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -111,6 +111,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: -54.27}
   m_Children:
+  - {fileID: 4617992996939508}
   - {fileID: 4697326845148912}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -134,13 +135,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1693445876230452}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.337, y: -0.025, z: 0.757}
-  m_LocalScale: {x: 0.25, y: 0.5, z: 0.25}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.33580366, y: -0.02499652, z: -0.016737977}
+  m_LocalScale: {x: 0.24911249, y: 0.011055468, z: -0.24996512}
   m_Children:
   - {fileID: 4770572561064668}
-  m_Father: {fileID: 4697326845148912}
-  m_RootOrder: 1
+  m_Father: {fileID: 4354247049632262}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4697326845148912
 Transform:
@@ -153,9 +154,8 @@ Transform:
   m_LocalScale: {x: 0.99644995, y: 0.99986, z: -0.022110928}
   m_Children:
   - {fileID: 4432484951113858}
-  - {fileID: 4617992996939508}
   m_Father: {fileID: 4354247049632262}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4770572561064668
 Transform:
@@ -225,7 +225,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 1ac5c6f4ae4927840a415b09ba81bf40, type: 2}
+  - {fileID: 2100000, guid: 5175b68b5d7ce724299960aa3ed514fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -369,6 +369,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1222540833270198, guid: 57b7ce855dced2d49a3c83418da2631d,
     type: 2}
   bulletSpawn: {fileID: 4770572561064668}
+  bulletVel: 20
+  playerId: 0
 --- !u!114 &114381840077716898
 MonoBehaviour:
   m_ObjectHideFlags: 1
