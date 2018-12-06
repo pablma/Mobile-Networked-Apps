@@ -12,8 +12,11 @@ public class GameManager : NetworkBehaviour {
     public Text player1PointsText;
     public Text player2PointsText;
 
+    //[SyncVar(hook = "updateUi1")]
     [SyncVar]
     public int player1Points = 0;
+
+    //[SyncVar(hook = "updateUi2")]
     [SyncVar]
     public int player2Points = 0;
 
@@ -66,7 +69,6 @@ public class GameManager : NetworkBehaviour {
     {
         switch (bulletId)
         {
-
             case 0:
                 player1Points += duckId;
                 break;
@@ -74,12 +76,18 @@ public class GameManager : NetworkBehaviour {
                 player2Points += duckId;
                 break;
         }
-        updateUi();
-    }
-   
-    void updateUi()
-    {
+
         player1PointsText.text = player1Points.ToString();
         player2PointsText.text = player2Points.ToString();
     }
+   
+    //void updateUi1(int player1Points)
+    //{
+    //    //player1PointsText.text = player1Points.ToString();
+    //}
+
+    //void updateUi2(int player2Points)
+    //{
+    //    //player2PointsText.text = player2Points.ToString();
+    //}
 }
