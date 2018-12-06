@@ -12,7 +12,7 @@ public class GameManager : NetworkBehaviour {
     public Text player1PointsText;
     public Text player2PointsText;
 
-    //[SyncVar(hook = "updateUi1")]
+    //[SyncVar(hook = "updateUi1")] 
     [SyncVar]
     public int player1Points = 0;
 
