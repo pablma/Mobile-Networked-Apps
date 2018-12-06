@@ -32,13 +32,13 @@ public class FingerGun : NetworkBehaviour
     void Start()
     {
 
-        if (playerId == 0)
-        {
-            //changes the collor to red for the not local player (the other player)
-            GetComponentInChildren<MeshRenderer>().material.color = Color.blue; ;
-        }
-        else
-            GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        //if (playerId == 0)
+        //{
+        //    //changes the collor to red for the not local player (the other player)
+        //    GetComponentInChildren<MeshRenderer>().material.color = Color.blue; ;
+        //}
+        //else
+        //    GetComponentInChildren<MeshRenderer>().material.color = Color.red;
 
         //if ((GameObject.Find("Main Camera") != null) && (GameObject.Find("Main Camera").GetComponent<Camera>() != null))
         //{
