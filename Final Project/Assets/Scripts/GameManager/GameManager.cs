@@ -14,6 +14,11 @@ public class GameManager : NetworkBehaviour {
 
     public Image player1PanelColor;
     public Image player2PanelColor;
+
+    public int maxPoints = 100;
+
+    public Image endPanel;
+    public Text endText;
     //[SyncVar(hook = "updateUi1")] 
     [SyncVar]
     public int player1Points = 0;
@@ -23,17 +28,27 @@ public class GameManager : NetworkBehaviour {
     public int player2Points = 0;
 
     GameObject[] players;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+
+    private void Awake()
+    {
         instance = this;
+    }
+    void Start () {
+
 
         player1PointsText.text = player1Points.ToString();
         player2PointsText.text = player2Points.ToString();
 
+        endText.text = "";
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void updatePlayersArray()
+    {
+        players = GameObject.FindGameObjectsWithTag("Player");
+    }
+    // Update is called once per frame
+    void Update () {
 	}
     
     public void LoadShooterGame()
@@ -71,11 +86,19 @@ public class GameManager : NetworkBehaviour {
         switch (bulletId)
         {
             case 0:
-                player1Points += duckId;
-                break;
+                {
+                    player1Points += duckId;
+                    if (player1Points >= maxPoints)
+                        gameOver(0);
+                    break;
+                }
             case 1:
-                player2Points += duckId;
-                break;
+                {
+                    player2Points += duckId;
+                    if (player2Points >= maxPoints)
+                        gameOver(1);
+                    break;
+                }
         }
 
         player1PointsText.text = player1Points.ToString();
@@ -92,13 +115,22 @@ public class GameManager : NetworkBehaviour {
         player2PanelColor.color = c;
     }
 
-    //void updateUi1(int player1Points)
-    //{
-    //    //player1PointsText.text = player1Points.ToString();
-    //}
+    void gameOver(int winnerId)
+    {
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<FingerGun>().ThereAreAWinner(winnerId);
+        }
+        endPanel.gameObject.SetActive(true);
+    }
 
-    //void updateUi2(int player2Points)
-    //{
-    //    //player2PointsText.text = player2Points.ToString();
-    //}
+    public void setGameOverText(string state)
+    {
+        endText.text = state;
+    }
+
+    public void backToLobby()
+    {
+        FindObjectOfType<Prototype.NetworkLobby.LobbyManager>().backDelegate();
+    }
 }

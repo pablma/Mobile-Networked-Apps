@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class FingerGun : NetworkBehaviour
 {
+    public int winnerRegistered = 25;
+
     public GameObject bulletPrefab; //gO that is going to be spawned
 
     public Transform bulletSpawn; //position from where the bullet is going to be instantiate
@@ -29,6 +31,7 @@ public class FingerGun : NetworkBehaviour
         else playerId = 0;
         //a number to identificate the player, the bullet spawned by each one is coing to have the same identificator
     }
+
     void Start()
     {
 
@@ -40,11 +43,13 @@ public class FingerGun : NetworkBehaviour
         else
             GameManager.instance.setPlayer2PanelColor(GetComponentInChildren<PlayerColor>().pColor);
 
-            //if ((GameObject.Find("Main Camera") != null) && (GameObject.Find("Main Camera").GetComponent<Camera>() != null))
-            //{
-            //    camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-            //}
-        }
+
+        GameManager.instance.updatePlayersArray();
+        //if ((GameObject.Find("Main Camera") != null) && (GameObject.Find("Main Camera").GetComponent<Camera>() != null))
+        //{
+        //    camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        //}
+    }
 
     // Update is called once per frame
     void Update () {
@@ -86,5 +91,24 @@ public class FingerGun : NetworkBehaviour
 
         // Destroy the bullet after 2 seconds
         Destroy(bullet, 5.0f);
+    }
+
+    public void ThereAreAWinner(int winnerId)
+    {
+        string state = "There are no winners at war";
+        if (isLocalPlayer)
+        {
+            if(winnerId == playerId)
+            {
+                state = "You Won!";
+            }
+            else
+                state = "You lose!";
+                    GameManager.instance.setGameOverText(state);
+        }
+
+
+
+
     }
 }
