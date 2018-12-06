@@ -21,4 +21,11 @@ public class SpawnObject : NetworkBehaviour
             }
         }
     }
+
+
+    //[ClientRpc]
+    //private void RpcSpawn()
+    //{
+
+    //}
 }

@@ -51,3 +51,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbdcc941648aa84f91e59b0031a8ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1PointsText: {fileID: 0}
+  player2PointsText: {fileID: 0}
+  player1PanelColor: {fileID: 114486373699225676, guid: 4e1ee797b258dca499e4ed474fd34ea8,
+    type: 2}
+  player2PanelColor: {fileID: 114678246326735184, guid: 4e1ee797b258dca499e4ed474fd34ea8,
+    type: 2}
+  maxPoints: 100
+  endPanel: {fileID: 114009645305168206, guid: 4e1ee797b258dca499e4ed474fd34ea8, type: 2}
+  endText: {fileID: 0}
+  player1Points: 0
+  player2Points: 0
