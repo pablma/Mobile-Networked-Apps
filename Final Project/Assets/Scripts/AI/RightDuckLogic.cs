@@ -19,4 +19,10 @@ public class RightDuckLogic : MonoBehaviour{
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.right * speed;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //ObjectPooler.instance.CmdKillGameObject(gameObject);
+        gameObject.SetActive(false);
+    }
 }

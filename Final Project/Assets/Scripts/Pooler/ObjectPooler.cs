@@ -30,7 +30,7 @@ public class ObjectPooler : NetworkBehaviour {
     public override void OnStartServer()
     {
         instance = this;
-    
+
         // We create a new dictionary
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
@@ -56,7 +56,7 @@ public class ObjectPooler : NetworkBehaviour {
     }
 
     // Method to get an item from one of the pools
-    private GameObject getItemFromPool(GameObject go)
+    private GameObject GetItemFromPool(GameObject go)
     {
         // To prevent unexpected errors
         if (!poolDictionary.ContainsKey(go.name))
@@ -75,10 +75,11 @@ public class ObjectPooler : NetworkBehaviour {
     }
 
     // Method to spawn a gameObject from one of the pools
-    public void spawnFromPool(GameObject go, Vector2 position, Quaternion rotation)
+    [Command]
+    public void CmdSpawnFromPool(GameObject go, Vector2 position, Quaternion rotation)
     {
         // We search the pool and give life to one of the objects
-        GameObject obj = getItemFromPool(go);
+        GameObject obj = GetItemFromPool(go);
         obj.transform.position = position;
         obj.transform.rotation = rotation;
         obj.SetActive(true);
@@ -91,10 +92,11 @@ public class ObjectPooler : NetworkBehaviour {
     }
 
     // Method to disabled a gameObject form one of the pools
-    public void killGameObject(GameObject obj)
-    {
-        obj.SetActive(false);
-    }
+    //[Command]
+    //public void CmdKillGameObject(GameObject obj)
+    //{
+    //    obj.SetActive(false);
+    //}
 
     // Checks if there's a pool with an specific tag
     public bool itemExists(GameObject go)

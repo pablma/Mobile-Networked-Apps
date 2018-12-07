@@ -16,7 +16,7 @@ public class SpawnObject : NetworkBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                ObjectPooler.instance.spawnFromPool(objectToSpawn, transform.position, transform.rotation);
+                ObjectPooler.instance.CmdSpawnFromPool(objectToSpawn, transform.position, transform.rotation);
                 timer = TimeToRespawn;
             }
         }
