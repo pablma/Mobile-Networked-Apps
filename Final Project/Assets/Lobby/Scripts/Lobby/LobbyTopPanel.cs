@@ -28,6 +28,10 @@ namespace Prototype.NetworkLobby
             }
 
         }
+        public bool LobbyTopPanelState()
+        {
+            return isDisplayed;
+        }
 
         public void ToggleVisibility(bool visible)
         {

@@ -150,6 +150,13 @@ public class GameManager : NetworkBehaviour {
         {
             players[i].GetComponent<FingerGun>().ThereAreAWinner(winnerId);
         }
+
+
+        Prototype.NetworkLobby.LobbyTopPanel lTP;
+        lTP = FindObjectOfType<Prototype.NetworkLobby.LobbyTopPanel>();
+        bool lobbyTopPanelState = lTP.LobbyTopPanelState();
+        lTP.ToggleVisibility(!lobbyTopPanelState);
+
         endPanel.gameObject.SetActive(true);
     }
 
