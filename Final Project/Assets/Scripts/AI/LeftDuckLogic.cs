@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class LeftDuckLogic : MonoBehaviour{
+public class LeftDuckLogic : NetworkBehaviour
+{
 
     // Variable to edit the velocity
     public float speed = 10f;
@@ -19,5 +21,11 @@ public class LeftDuckLogic : MonoBehaviour{
     {
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.left * speed;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Pool.instance.UnSpawnObject(gameObject);
+        NetworkServer.UnSpawn(gameObject);
     }
 }

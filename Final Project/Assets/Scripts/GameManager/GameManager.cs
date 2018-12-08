@@ -110,6 +110,16 @@ public class GameManager : NetworkBehaviour {
         player1PanelColor.color = c;
     }
 
+    public Color giveP1Color()
+    {
+        return player1PanelColor.color;
+    }
+
+    public Color giveP2Color()
+    {
+        return player2PanelColor.color;
+    }
+
     public void setPlayer2PanelColor(Color c)
     {
         player2PanelColor.color = c;

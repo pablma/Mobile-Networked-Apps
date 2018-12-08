@@ -12,11 +12,11 @@ public class LobbyBullet : NetworkBehaviour {
     {
         if (bulletId == 0)
         {
-            gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
+            gameObject.GetComponent<MeshRenderer>().material.color = GameManager.instance.giveP1Color();
         }
         else
         {
-            gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+            gameObject.GetComponent<MeshRenderer>().material.color = GameManager.instance.giveP2Color();
         }
     }
     private void Update()
