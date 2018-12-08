@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114415600764191528}
   - component: {fileID: 114707874723062552}
   m_Layer: 0
-  m_Name: RightDucksPool
+  m_Name: Pool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,5 +84,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac2bb96542e37d4ca23bb5db2af014a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ObjectPoolSize: 10
-  m_Prefab: {fileID: 1461478041264452, guid: a04c3627aa9a29b43a919551ef5d72d5, type: 2}
+  itemsToPool:
+  - tag: RightDuck
+    objectToPool: {fileID: 1461478041264452, guid: a04c3627aa9a29b43a919551ef5d72d5,
+      type: 2}
+    amountToPool: 10
