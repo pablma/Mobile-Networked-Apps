@@ -37,6 +37,8 @@ public class DuckPoints : MonoBehaviour {
                     gM[i].giveMePoints(points);
                 }
             }
+
+            Destroy(lobbyBullet.gameObject);
         }
     }
 

@@ -281,7 +281,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: m_SpawnPrefabs.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 22459552, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: m_RootOrder
@@ -430,6 +430,15 @@ Prefab:
     - target: {fileID: 11402578, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: m_Text
       value: NETWORK LOBBY
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
+      propertyPath: m_SpawnPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1298067446375870, guid: 3771e8dfb6d0b584ca53002a7eda1175,
+        type: 2}
+    - target: {fileID: 11413568, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
