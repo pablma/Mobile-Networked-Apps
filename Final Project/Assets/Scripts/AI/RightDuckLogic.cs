@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class RightDuckLogic : MonoBehaviour{
+public class RightDuckLogic : NetworkBehaviour{
 
     // Variable to edit the velocity
     public float speed = 10f;
@@ -23,6 +24,8 @@ public class RightDuckLogic : MonoBehaviour{
     private void OnCollisionEnter(Collision collision)
     {
         //ObjectPooler.instance.CmdKillGameObject(gameObject);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Pool.instance.UnSpawnObject(gameObject);
+        NetworkServer.UnSpawn(gameObject);
     }
 }
