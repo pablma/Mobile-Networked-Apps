@@ -20,11 +20,6 @@ public class Pool : NetworkBehaviour {
     // New dictionary set to be able to find a specific pool of objects
     public Dictionary<string, Queue<GameObject>> poolDictionary;
 
-
-    //public int m_ObjectPoolSize = 10;
-    //public GameObject m_Prefab;
-    //GameObject[] m_Pool;
-
     public NetworkHash128 assetId { get; set; }
 
     // Handles requests to spawn GameObjects on the client
@@ -36,6 +31,7 @@ public class Pool : NetworkBehaviour {
     // We make the pool a singleton to get access in an easy way
     public static Pool instance;
 
+    // A tag to instantiate the object we want from the spawner script
     private string TagObjectFinder;
 
     private void Awake()
@@ -63,20 +59,9 @@ public class Pool : NetworkBehaviour {
 
             ClientScene.RegisterSpawnHandler(assetId, SpawnObject, UnSpawnObject);
         }
-
-        //Pool
-        //assetId = m_Prefab.GetComponent<NetworkIdentity>().assetId;
-        //m_Pool = new GameObject[m_ObjectPoolSize];
-        //for (int i = 0; i < m_ObjectPoolSize; ++i)
-        //{
-        //    m_Pool[i] = (GameObject)Instantiate(m_Prefab, Vector3.zero, Quaternion.identity);
-        //    m_Pool[i].name = "PoolObject" + i;
-        //    m_Pool[i].SetActive(false);
-        //}
-
-        //ClientScene.RegisterSpawnHandler(assetId, SpawnObject, UnSpawnObject);
     }
 
+    // Finds a gameObject in the pooler and returns the reference to it
     private GameObject findObjectInPool(string tag, Vector3 position)
     {
         // To prevent unexpected errors
@@ -97,36 +82,27 @@ public class Pool : NetworkBehaviour {
         objectToSpawn.SetActive(true);
 
         return objectToSpawn;
-
-        //Pool
-        //foreach (var obj in m_Pool)
-        //{
-        //    if (!obj.activeInHierarchy)
-        //    {
-        //        obj.transform.position = position;
-        //        obj.SetActive(true);
-        //        return obj;
-        //    }
-        //}
-        //Debug.Log("Could not grab GameObject from pool, nothing available");
-        //return null;
     }
 
+    // Method to spawn objects
     public GameObject GetFromPool(Vector3 position)
     {
         return findObjectInPool(TagObjectFinder, position);
     }
 
+    // Function to spawn objects
     public GameObject SpawnObject(Vector3 position, NetworkHash128 assetId)
     {
         return findObjectInPool(TagObjectFinder, position);
     }
 
+    // Function to unspawn objects
     public void UnSpawnObject(GameObject spawned)
     {
         spawned.SetActive(false);
     }
 
+    // Function to modifify the tag from other class
     public void updateTagObjectFinder(string t)
     {
         TagObjectFinder = t;

@@ -5,9 +5,16 @@ using UnityEngine.Networking;
 
 public class Spawner : NetworkBehaviour {
 
+    // Time rate of the spawned objects
     public float TimeToRespawn = 2f;
+
+    // Internal timer
     private float timer;
+
+    // Boolean to know when the server has started
     private bool serverHasStarted = false;
+
+    // Tag to find the objects in the pooler
     public string poolTag;
 
 
@@ -26,6 +33,7 @@ public class Spawner : NetworkBehaviour {
         //if (Input.GetKeyDown(KeyCode.L))
         //    CmdSpawn();
 
+        // If the server has started, we applied the timer logic to spawn objects every 'x' seconds
         if (serverHasStarted)
         {
             timer -= Time.deltaTime;
@@ -38,12 +46,13 @@ public class Spawner : NetworkBehaviour {
 
     }
 
+    // Method to spawn a gameobject from the pooler
     [Command]
     void CmdSpawn()
     {
         Pool.instance.updateTagObjectFinder(poolTag);
-        var duck = Pool.instance.GetFromPool(transform.position);
-        NetworkServer.Spawn(duck, Pool.instance.assetId);
+        var obj = Pool.instance.GetFromPool(transform.position);
+        NetworkServer.Spawn(obj, Pool.instance.assetId);
     }
 
 }
