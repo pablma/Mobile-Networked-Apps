@@ -23,8 +23,6 @@ public class RightDuckLogic : NetworkBehaviour{
 
     private void OnCollisionEnter(Collision collision)
     {
-        //ObjectPooler.instance.CmdKillGameObject(gameObject);
-        //gameObject.SetActive(false);
         Pool.instance.UnSpawnObject(gameObject);
         NetworkServer.UnSpawn(gameObject);
     }
