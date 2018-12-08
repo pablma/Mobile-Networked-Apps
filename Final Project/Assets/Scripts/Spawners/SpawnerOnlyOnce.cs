@@ -4,18 +4,10 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class SpawnerOnlyOnce : NetworkBehaviour {
-
-    // Time rate of the spawned objects
-    public float TimeToRespawn = 2f;
-
-    // Internal timer
-    private float timer;
-
     // Tag to find the objects in the pooler
     public string poolTag;
 
-
-    public override void OnStartServer()
+    private void Start()
     {
         CmdSpawn();
     }
