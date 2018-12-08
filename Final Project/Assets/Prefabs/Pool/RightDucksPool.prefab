@@ -9,58 +9,44 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1886931953945092}
+  m_RootGameObject: {fileID: 1851753616963408}
   m_IsPrefabAsset: 1
---- !u!1 &1886931953945092
+--- !u!1 &1851753616963408
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4742253382437332}
-  - component: {fileID: 114352611116808716}
-  - component: {fileID: 114608635531873232}
+  - component: {fileID: 4075612159559636}
+  - component: {fileID: 114415600764191528}
+  - component: {fileID: 114707874723062552}
   m_Layer: 0
-  m_Name: LeftDuckSpawner
+  m_Name: RightDucksPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4742253382437332
+--- !u!4 &4075612159559636
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1886931953945092}
+  m_GameObject: {fileID: 1851753616963408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.8, y: -2.2, z: 0}
+  m_LocalPosition: {x: 5.6401215, y: -4.677659, z: -2.3656678}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114352611116808716
+--- !u!114 &114415600764191528
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1886931953945092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7d7c55a6f66c748a7ac8f0e32c2e2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 1047931155509308, guid: e01031718547ec24ab9aa509af4013d9,
-    type: 2}
-  TimeToRespawn: 2
---- !u!114 &114608635531873232
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1886931953945092}
+  m_GameObject: {fileID: 1851753616963408}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
@@ -69,21 +55,34 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 211
-    i1: 86
-    i2: 12
-    i3: 66
-    i4: 80
-    i5: 22
-    i6: 170
-    i7: 52
-    i8: 137
-    i9: 147
-    i10: 139
-    i11: 199
-    i12: 165
-    i13: 31
-    i14: 158
-    i15: 201
-  m_ServerOnly: 1
+    i0: 131
+    i1: 33
+    i2: 150
+    i3: 163
+    i4: 227
+    i5: 31
+    i6: 164
+    i7: 20
+    i8: 187
+    i9: 39
+    i10: 144
+    i11: 220
+    i12: 179
+    i13: 74
+    i14: 238
+    i15: 237
+  m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &114707874723062552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1851753616963408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac2bb96542e37d4ca23bb5db2af014a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ObjectPoolSize: 10
+  m_Prefab: {fileID: 1461478041264452, guid: a04c3627aa9a29b43a919551ef5d72d5, type: 2}

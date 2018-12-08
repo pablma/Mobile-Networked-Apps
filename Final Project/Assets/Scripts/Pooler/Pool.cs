@@ -6,7 +6,7 @@ public class Pool : NetworkBehaviour {
 
     public int m_ObjectPoolSize = 10;
     public GameObject m_Prefab;
-    public GameObject[] m_Pool;
+    GameObject[] m_Pool;
 
     public NetworkHash128 assetId { get; set; }
 
@@ -18,10 +18,6 @@ public class Pool : NetworkBehaviour {
 
     public static Pool instance;
 
-    public bool poolerInitialized = false;
-    public bool serverHasStarted = false;
-
-
     private void Awake()
     {
         instance = this;
@@ -30,28 +26,12 @@ public class Pool : NetworkBehaviour {
         m_Pool = new GameObject[m_ObjectPoolSize];
         for (int i = 0; i < m_ObjectPoolSize; ++i)
         {
-            //m_Pool[i] = (GameObject)Instantiate(m_Prefab, Vector3.zero, Quaternion.identity);
-            //m_Pool[i].name = "PoolObject" + i;
-            //m_Pool[i].SetActive(false);
-            CreatePooler(m_Pool, i);
+            m_Pool[i] = (GameObject)Instantiate(m_Prefab, Vector3.zero, Quaternion.identity);
+            m_Pool[i].name = "PoolObject" + i;
+            m_Pool[i].SetActive(false);
         }
 
         ClientScene.RegisterSpawnHandler(assetId, SpawnObject, UnSpawnObject);
-
-        poolerInitialized = true;
-    }
-
-
-    private void CreatePooler(GameObject [] pool, int i)
-    {
-        pool[i] = (GameObject)Instantiate(m_Prefab, Vector3.zero, Quaternion.identity);
-        pool[i].name = "PoolObject" + i;
-        pool[i].SetActive(false);
-    }
-
-    public override void OnStartServer()
-    {
-        serverHasStarted = true;
     }
 
     public GameObject GetFromPool(Vector3 position)
@@ -60,7 +40,6 @@ public class Pool : NetworkBehaviour {
         {
             if (!obj.activeInHierarchy)
             {
-                //Debug.Log("Activating GameObject " + obj.name + " at " + position);
                 obj.transform.position = position;
                 obj.SetActive(true);
                 return obj;
@@ -77,7 +56,6 @@ public class Pool : NetworkBehaviour {
 
     public void UnSpawnObject(GameObject spawned)
     {
-        //Debug.Log("Re-pooling GameObject " + spawned.name);
         spawned.SetActive(false);
     }
 }

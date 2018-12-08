@@ -22,17 +22,6 @@ public class Spawner : NetworkBehaviour {
 
     private void Update()
     {
-        //if (Pool.instance.poolerInitialized)
-        //{
-        //    //pool = GameObject.Find("Pool").GetComponent<Pool>();
-        //    //if (isServer)
-        //    //    ServerSpawn();
-        //    //else
-        //    //CmdSpawn();
-
-        //    CmdServerSpawn();
-        //}
-
         //if (Input.GetKeyDown(KeyCode.L))
         //    CmdSpawn();
 
@@ -55,12 +44,4 @@ public class Spawner : NetworkBehaviour {
         NetworkServer.Spawn(duck, Pool.instance.assetId);
     }
 
-    [Command]
-    void CmdServerSpawn()
-    {
-        //var duck = Pool.instance.GetFromPool(transform.position);
-        //NetworkServer.Spawn(duck, Pool.instance.assetId);
-        //Pool.instance.GetFromPool(transform.position);
-        NetworkServer.Spawn(Pool.instance.SpawnObject(transform.position, Pool.instance.assetId), Pool.instance.assetId);
-    }
 }
