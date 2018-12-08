@@ -19,12 +19,12 @@ public class GameManager : NetworkBehaviour {
 
     public Image endPanel;
     public Text endText;
-    //[SyncVar(hook = "updateUi1")] 
-    [SyncVar]
+    //////////[SyncVar(hook = "updateUi1")] 
+    ////////[SyncVar]
     public int player1Points = 0;
 
-    //[SyncVar(hook = "updateUi2")]
-    [SyncVar]
+    ////////////[SyncVar(hook = "updateUi2")]
+    //////////[SyncVar]
     public int player2Points = 0;
 
     GameObject[] players;
@@ -114,6 +114,25 @@ public class GameManager : NetworkBehaviour {
     {
         player2PanelColor.color = c;
     }
+
+    public void updatePlayerOnePoints(int points)
+    {
+        player1Points = points;
+        player1PointsText.text = player1Points.ToString();
+
+        if (player1Points >= maxPoints)
+            gameOver(0);
+    }
+
+    public void updatePlayerTwoPoints(int points)
+    {
+        player2Points = points;
+        player2PointsText.text = player2Points.ToString();
+
+        if (player2Points >= maxPoints)
+            gameOver(1);
+    }
+
 
     void gameOver(int winnerId)
     {

@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114606311381219568}
   - component: {fileID: 114803430942296342}
   - component: {fileID: 114766876242770802}
+  - component: {fileID: 114724865937191036}
   m_Layer: 0
   m_Name: CameraPlayer
   m_TagString: Player
@@ -367,6 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f0f31f9fa4f3745898c754b8703d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winnerRegistered: 25
   bulletPrefab: {fileID: 1222540833270198, guid: 57b7ce855dced2d49a3c83418da2631d,
     type: 2}
   bulletSpawn: {fileID: 4770572561064668}
@@ -404,6 +406,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e7c940b25f1fd43af86279f1b9fb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114724865937191036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1522117249423510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0f295445faab849935bff0d13a653f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPoints: 0
 --- !u!114 &114756353112927924
 MonoBehaviour:
   m_ObjectHideFlags: 1

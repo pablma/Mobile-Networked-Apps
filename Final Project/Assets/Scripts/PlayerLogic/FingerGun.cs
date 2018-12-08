@@ -106,9 +106,10 @@ public class FingerGun : NetworkBehaviour
                 state = "You lose!";
                     GameManager.instance.setGameOverText(state);
         }
+    }
 
-
-
-
+    public int getPlayerId()
+    {
+        return playerId;
     }
 }
