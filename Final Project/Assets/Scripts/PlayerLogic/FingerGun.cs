@@ -22,7 +22,7 @@ public class FingerGun : NetworkBehaviour
 
     private void Awake()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
+        players = GameObject.FindGameObjectsWithTag("Player");//get the players on scene and store them on an array
 
         if (players.Length > 1)
         {
@@ -35,16 +35,8 @@ public class FingerGun : NetworkBehaviour
     void Start()
     {
 
-        if (playerId == 0)
-        {
-
-            GameManager.instance.setPlayer1PanelColor(GetComponentInChildren<PlayerColor>().pColor);
-        }
-        else
-            GameManager.instance.setPlayer2PanelColor(GetComponentInChildren<PlayerColor>().pColor);
-
-
-        GameManager.instance.updatePlayersArray();
+        GameManager.instance.UpdatePlayersArray();
+        IdentifyPlayersPanel();
         //if ((GameObject.Find("Main Camera") != null) && (GameObject.Find("Main Camera").GetComponent<Camera>() != null))
         //{
         //    camera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -55,9 +47,23 @@ public class FingerGun : NetworkBehaviour
     void Update () {
     }
 
-
-    public void Shoot()
+    void IdentifyPlayersPanel()
     {
+        //allow us to send to the GameManager the information about the color selectod for each player to color their respective panels
+        if (playerId == 0)
+        {
+
+            GameManager.instance.setPlayer1PanelColor(GetComponentInChildren<PlayerColor>().pColor);
+        }
+        else
+            GameManager.instance.setPlayer2PanelColor(GetComponentInChildren<PlayerColor>().pColor);
+    }
+
+
+    public void Shoot()//public function that calls the private and Cmd function,
+    {
+        //it allow us to call it from the canvas to make posible the button shotting
+
         if (isLocalPlayer)
         {
             CmdFire();
@@ -69,28 +75,37 @@ public class FingerGun : NetworkBehaviour
         base.OnStartLocalPlayer();
         {
         }
-        //changes the color for the local player
-            GetComponentInChildren<Camera>().enabled = true;
+            GetComponentInChildren<Camera>().enabled = true; // when the server starts we give preference to the camera of the local player
     }
 
     [Command]
     public void CmdFire()
     {
         // Create the Bullet from the Bullet Prefab
-        var bullet = (GameObject)Instantiate(
-            bulletPrefab,
-            bulletSpawn.position, bulletSpawn.rotation);
+        ////////////////var bullet = (GameObject)Instantiate(
+        ////////////////    bulletPrefab,
+        ////////////////    bulletSpawn.position, bulletSpawn.rotation);
+        Pool.instance.updateTagObjectFinder("Bullet");
+        var bullet = Pool.instance.GetFromPool(bulletSpawn.position);
 
         // Add velocity to the bullet
+        bullet.transform.rotation = bulletSpawn.rotation;
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletVel;
         bullet.GetComponent<LobbyBullet>().assingId(playerId);//gives the bullet the same Id than the player that is shooting, to identificate the owner.
 
         //Allows to instantiate game objects on server in order to be instatiate in all the clients of the server
-        NetworkServer.Spawn(bullet);
+        NetworkServer.Spawn(bullet, Pool.instance.assetId);
 
+        // Destroy the bullet after 5 seconds if ther have been no collition with ducks or cans
 
-        // Destroy the bullet after 2 seconds
-        Destroy(bullet, 5.0f);
+        StartCoroutine(KillObjectOnTime(bullet, 5.0f));
+    }
+
+    public IEnumerator KillObjectOnTime(GameObject go, float timer)//courtrutine that allow us to unspawn a bullet if it has not collide witha duck or a can
+    {
+        yield return new WaitForSeconds(timer);
+        Pool.instance.UnSpawnObject(go);
+        NetworkServer.UnSpawn(go);
     }
 
     public void ThereAreAWinner(int winnerId)

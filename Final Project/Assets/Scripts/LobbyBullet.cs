@@ -10,34 +10,34 @@ public class LobbyBullet : NetworkBehaviour {
 
     private void Start()
     {
-        if (bulletId == 0)
-        {
-            gameObject.GetComponent<MeshRenderer>().material.color = GameManager.instance.giveP1Color();
-        }
-        else
-        {
-            gameObject.GetComponent<MeshRenderer>().material.color = GameManager.instance.giveP2Color();
-        }
+        IdentificateBullets();
     }
     private void Update()
     {
-
-        //Allow us to distinguish the two bullets
     }
 
     void OnCollisionEnter(Collision collision) 
     {
-        //the bullets are killed on collision
-        //Destroy(gameObject //we call the method that allow us to disable (kill) the object the bullet is colliding that will be reused by the pool.
-        //the bullet will get the component 
+    }
+    
+    void IdentificateBullets()//allow us to identificate the bullets by his owner color, the bullet and the owner will have the same color
+    {
+        if (bulletId == 0)
+        {
+            gameObject.GetComponent<MeshRenderer>().material.color = GameManager.instance.GetP1Color();
+        }
+        else
+        {
+            gameObject.GetComponent<MeshRenderer>().material.color = GameManager.instance.GetP2Color();
+        }
     }
 
-    public void assingId(int ID)
+    public void assingId(int ID)//allow us to assing the id of the bullet wich will be the same as the player that is shooting
     {
         bulletId = ID;
     }
 
-    public int getId()
+    public int getId()//allow us to get from other script the id of each bullet, it allow us to know who is the owner of each bullet
     {
         return bulletId;
     }

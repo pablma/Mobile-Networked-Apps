@@ -23,7 +23,7 @@ public class LeftDuckLogic : NetworkBehaviour
         rb.velocity = Vector3.left * speed;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)// unsepawn when it collides with another object
     {
         Pool.instance.UnSpawnObject(gameObject);
         NetworkServer.UnSpawn(gameObject);

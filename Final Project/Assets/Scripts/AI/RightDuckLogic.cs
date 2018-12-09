@@ -21,7 +21,7 @@ public class RightDuckLogic : NetworkBehaviour{
         rb.velocity = Vector3.right * speed;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)//Unspawn the object when collides with another object
     {
         Pool.instance.UnSpawnObject(gameObject);
         NetworkServer.UnSpawn(gameObject);

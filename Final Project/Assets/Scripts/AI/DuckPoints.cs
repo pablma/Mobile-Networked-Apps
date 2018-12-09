@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class DuckPoints : MonoBehaviour {
+public class DuckPoints : NetworkBehaviour {
 
     public int points = 0;
     private LobbyBullet lobbyBullet;
@@ -27,9 +28,6 @@ public class DuckPoints : MonoBehaviour {
         lobbyBullet = collision.gameObject.GetComponent<LobbyBullet>();
         if (lobbyBullet != null)
         {
-            //////////GameManager.instance.givePoints(points,lobbyBullet.getId());
-
-
             for(int i = 0; i < gM.Length; i++)
             {
                 if(lobbyBullet.getId() == gM[i].GetPlayerId())
@@ -38,7 +36,9 @@ public class DuckPoints : MonoBehaviour {
                 }
             }
 
-            Destroy(lobbyBullet.gameObject);
+            Pool.instance.UnSpawnObject(lobbyBullet.gameObject);
+            NetworkServer.UnSpawn(lobbyBullet.gameObject);
+            //////////////Destroy(lobbyBullet.gameObject);
         }
     }
 

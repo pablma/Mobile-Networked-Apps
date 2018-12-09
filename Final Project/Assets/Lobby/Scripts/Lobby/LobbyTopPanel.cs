@@ -28,6 +28,8 @@ namespace Prototype.NetworkLobby
             }
 
         }
+
+        //we have modified this script in order to have acces to the information of the boolean and display the method to show the LobbyTopPanel whenever we want.
         public bool LobbyTopPanelState()
         {
             return isDisplayed;
