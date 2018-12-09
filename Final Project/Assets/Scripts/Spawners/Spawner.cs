@@ -17,22 +17,14 @@ public class Spawner : NetworkBehaviour {
     // Tag to find the objects in the pooler
     public string poolTag;
 
-
+    // To know when the server has started
     public override void OnStartServer()
     {
         serverHasStarted = true;
     }
 
-    // Use this for initialization
-    void Start () {
-
-	}
-
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.L))
-        //    CmdSpawn();
-
         // If the server has started, we applied the timer logic to spawn objects every 'x' seconds
         if (serverHasStarted)
         {
@@ -43,7 +35,6 @@ public class Spawner : NetworkBehaviour {
                 timer = TimeToRespawn;
             }
         }
-
     }
 
     // Method to spawn a gameobject from the pooler

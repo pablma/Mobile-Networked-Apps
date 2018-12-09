@@ -9,19 +9,16 @@ public class RightDuckLogic : NetworkBehaviour{
     public float speed = 10f;
     private Rigidbody rb;
 
-	// Use this for initialization
-	void Start () {
-        
-    }
-
     // The duck must move when we activate it
     private void OnEnable()
     {
+        // We access the rigidbody component and add velocity to the object
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.right * speed;
     }
 
-    private void OnCollisionEnter(Collision collision)//Unspawn the object when collides with another object
+    //Unspawn the object when collides with another object
+    private void OnCollisionEnter(Collision collision)
     {
         Pool.instance.UnSpawnObject(gameObject);
         NetworkServer.UnSpawn(gameObject);
