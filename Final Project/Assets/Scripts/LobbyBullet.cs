@@ -16,9 +16,6 @@ public class LobbyBullet : NetworkBehaviour {
     {
     }
 
-    void OnCollisionEnter(Collision collision) 
-    {
-    }
     
     void IdentificateBullets()//allow us to identificate the bullets by his owner color, the bullet and the owner will have the same color
     {
@@ -40,5 +37,11 @@ public class LobbyBullet : NetworkBehaviour {
     public int getId()//allow us to get from other script the id of each bullet, it allow us to know who is the owner of each bullet
     {
         return bulletId;
+    }
+
+    private void OnCollisionEnter(Collision collision)//Unspawn the object when collides with another object
+    {
+        Pool.instance.UnSpawnObject(gameObject);
+        NetworkServer.UnSpawn(gameObject);
     }
 }

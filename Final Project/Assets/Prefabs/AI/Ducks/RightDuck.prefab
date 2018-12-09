@@ -62,7 +62,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 7151394c9bf32c0459cd7d382d36a8f6, type: 2}
+  - {fileID: 2100000, guid: 4b0885922def60a4e96e333c63d97a48, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 1
-  m_SendInterval: 0.033333335
+  m_SendInterval: 0
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760c4cd1611c8b24c83f0cd69172e47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 50
+  points: 5
 --- !u!114 &114991622089230876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,4 +192,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a62deeec933bc14c8c2051e9184077b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 5
