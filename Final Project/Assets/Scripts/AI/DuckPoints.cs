@@ -22,7 +22,7 @@ public class DuckPoints : NetworkBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-
+        //when the buller collides it gives the number of point seted on the object to the owner of the bullet that has collide with it
         gM = FindObjectsOfType<Points>();
 
         lobbyBullet = collision.gameObject.GetComponent<LobbyBullet>();
@@ -38,7 +38,6 @@ public class DuckPoints : NetworkBehaviour {
 
             Pool.instance.UnSpawnObject(lobbyBullet.gameObject);
             NetworkServer.UnSpawn(lobbyBullet.gameObject);
-            //////////////Destroy(lobbyBullet.gameObject);
         }
     }
 

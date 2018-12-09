@@ -6,12 +6,13 @@ using UnityEngine.Networking;
 public class LobbyBullet : NetworkBehaviour {
 
     [SyncVar]
-    public int bulletId = 21;
+    public int bulletId = 21;//alow us to sincronice the bullet id
 
     private void Start()
     {
         IdentificateBullets();
     }
+
     private void Update()
     {
     }

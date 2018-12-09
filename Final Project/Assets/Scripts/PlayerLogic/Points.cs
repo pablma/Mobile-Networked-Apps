@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 public class Points : NetworkBehaviour
 {
 
-    //This script is the one that has the logic of the point on each player
+    //This script is the one that has the logic of the points that each player has
     FingerGun fingerGun;
 
     public const int initialPoints = 0;

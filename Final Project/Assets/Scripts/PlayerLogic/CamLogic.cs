@@ -10,7 +10,7 @@ public class CamLogic : NetworkBehaviour
     private float Y;
 
     void Update()
-    {//camera logic for mouse, it allow us to move the camera with the mouse
+    {//camera logic for mouse, it allow us to move the camera with the mouse to allow playing the game on computers
         if (!isLocalPlayer)
         {
             Camera vari;

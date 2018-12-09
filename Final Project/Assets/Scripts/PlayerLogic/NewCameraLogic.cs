@@ -20,9 +20,10 @@ public class NewCameraLogic : NetworkBehaviour
         this.transform.rotation = Quaternion.Euler(yAngle, xAngle, 0);
     }
 
+
+//alows the camera movement for mobile devices and touch options
     void Update()
     {
-
         if (isLocalPlayer) {
             if (Input.touchCount > 0)
             {

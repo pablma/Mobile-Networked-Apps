@@ -11,7 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/DuckHunter.unity
     guid: 094eeee03aeb6994c9c73b7161a9e36a
-  - enabled: 0
-    path: Assets/Scenes/Test/Spawners/Spawner_Network_Test.unity
-    guid: ae0dc4aaa2d6cb3438badc7df875d91e
   m_configObjects: {}

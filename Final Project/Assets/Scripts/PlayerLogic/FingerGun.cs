@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class FingerGun : NetworkBehaviour
 {
-    public int winnerRegistered = 25;
+    //It is the one that has the player logic.
+
 
     public GameObject bulletPrefab; //gO that is going to be spawned
 
@@ -81,10 +82,8 @@ public class FingerGun : NetworkBehaviour
     [Command]
     public void CmdFire()
     {
-        // Create the Bullet from the Bullet Prefab
-        ////////////////var bullet = (GameObject)Instantiate(
-        ////////////////    bulletPrefab,
-        ////////////////    bulletSpawn.position, bulletSpawn.rotation);
+        // uses the bullet from the pool
+
         Pool.instance.updateTagObjectFinder("Bullet");
         var bullet = Pool.instance.GetFromPool(bulletSpawn.position);
 
@@ -96,7 +95,7 @@ public class FingerGun : NetworkBehaviour
         //Allows to instantiate game objects on server in order to be instatiate in all the clients of the server
         NetworkServer.Spawn(bullet, Pool.instance.assetId);
 
-        // Destroy the bullet after 5 seconds if ther have been no collition with ducks or cans
+        // Despown the bullet after 5 seconds if there have been no collition with ducks or cans or other
 
         StartCoroutine(KillObjectOnTime(bullet, 5.0f));
     }
@@ -108,7 +107,7 @@ public class FingerGun : NetworkBehaviour
         NetworkServer.UnSpawn(go);
     }
 
-    public void ThereAreAWinner(int winnerId)
+    public void ThereAreAWinner(int winnerId)//updates the canvas to show the correct message of the player state when the game is over
     {
         string state = "There are no winners at war";
         if (isLocalPlayer)
@@ -123,7 +122,7 @@ public class FingerGun : NetworkBehaviour
         }
     }
 
-    public int getPlayerId()
+    public int getPlayerId()//allow us to get the player id to identificate him
     {
         return playerId;
     }

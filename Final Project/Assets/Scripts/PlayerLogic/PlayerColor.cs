@@ -15,7 +15,7 @@ public class PlayerColor : NetworkBehaviour {
         playerMeshRenderers = GetComponentsInChildren<MeshRenderer>();
         for (int i = 0; i<playerMeshRenderers.Length; i++)
         {
-            playerMeshRenderers[i].material.color = pColor;
+            playerMeshRenderers[i].material.color = pColor;//changes all the elements that make the player to the color selected on the lobby menu
         }
 	}
 }
